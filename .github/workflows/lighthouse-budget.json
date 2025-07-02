@@ -4,7 +4,8 @@
       "numberOfRuns": 3,
       "url": [
         "https://foto-flow.vercel.app/home",
-        "https://foto-flow.vercel.app/login"
+        "https://foto-flow.vercel.app/login",
+        "https://foto-flow.vercel.app/register"
       ]
     },
     "assert": {

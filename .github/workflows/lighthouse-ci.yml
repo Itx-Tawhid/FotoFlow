@@ -25,7 +25,9 @@ jobs:
         uses: treosh/lighthouse-ci-action@v11
         with:
           urls: |
-            http://localhost:3000/
+            https://foto-flow.vercel.app/home
+            https://foto-flow.vercel.app/login
+            https://foto-flow.vercel.app/register
           budgetPath: ./lighthouse-budget.json
           uploadArtifacts: true
           temporaryPublicStorage: true
