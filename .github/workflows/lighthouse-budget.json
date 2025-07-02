@@ -2,7 +2,10 @@
   "ci": {
     "collect": {
       "numberOfRuns": 3,
-      "url": ["https://foto-flow.vercel.app/home"]
+      "url": [
+        "https://foto-flow.vercel.app/home",
+        "https://foto-flow.vercel.app/login"
+      ]
     },
     "assert": {
       "preset": "lighthouse:no-pwa",
