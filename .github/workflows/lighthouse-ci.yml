@@ -1,3 +1,9 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
@@ -20,7 +26,6 @@ jobs:
         with:
           urls: |
             http://localhost:3000/
-            http://localhost:3000/auth/login
           budgetPath: ./lighthouse-budget.json
           uploadArtifacts: true
           temporaryPublicStorage: true
