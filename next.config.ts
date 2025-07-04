@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["images.pexels.com"],
   },
+  experimental: {
+    turbo: {
+      resolveExtensions: [".js", ".ts", ".tsx"],
+    },
+  },
 };
 
 export default nextConfig;
