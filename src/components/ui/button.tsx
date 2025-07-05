@@ -21,7 +21,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
 }) => {
   return (
     <button
-      className={` text-sm px-2 py-1 border-[#fefefe18] ${className} ${
+      className={` text-sm px-3 py-1 ${className} ${
         icon && content && "flex items-center justify-center gap-2"
       }`}
       onClick={onClick}
