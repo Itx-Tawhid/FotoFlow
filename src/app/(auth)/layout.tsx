@@ -9,7 +9,7 @@ import { getRandomeImage } from "@/lib/utils";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Logo } from "@/components/ui/logo";
 import { ButtonIcon } from "@/components/ui/button";
-import { Outfit } from "next/font/google";
+import { Outfit, Merienda } from "next/font/google";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -17,12 +17,21 @@ const outfit = Outfit({
   variable: "--font-outfit",
 });
 
+const merienda = Merienda({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-merienda",
+});
+
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const [BgImage, setBgImage] = useState<ImageProps | undefined>(undefined);
   const [isLoading, setLoading] = useState<boolean>(true);
   const pathname = usePathname();
-  const isLoainpage = pathname === "/login";
+  const isLoainPage = pathname === "/login";
   const isRegisterPage = pathname === "/register";
+  const isForgotPage = pathname === "/forgot";
+  const isVerifyPage = pathname === "/verify-email";
+
   useEffect(() => {
     setBgImage(getRandomeImage(ImageItem));
   }, []);
@@ -30,7 +39,15 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
     <main className="flex items-center justify-between w-full h-screen bg-zinc-800 text-white">
       {/* Left side image and logo */}
       <div className="w-1/2 h-full">
-        <div className="w-[90%] h-full relative overflow-hidden ">
+        <div className="w-[90%] h-full relative overflow-hidden">
+          {!isLoading && (
+            <h1
+              className={`px-8 absolute z-10 text-4xl text-center text-wrap inset-0 flex items-center justify-center leading-normal tracking-wider text-white font-bold ${merienda.className} animate__animated animate__fadeInUp`}
+            >
+              {BgImage?.tagline}
+            </h1>
+          )}
+
           <div className="absolute top-4 left-4 z-10">
             <Logo width={35} height={35} textSize="text-2xl" />
           </div>
@@ -47,11 +64,20 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
               onLoadingComplete={() => setLoading(false)}
               className={`transition-opacity duration-500 ease-in-out ${
                 isLoading ? "opacity-0" : "opacity-100"
-              }`}
+              } brightness-50`}
             />
           ) : (
             <Skeleton className="w-full h-full rounded-none" />
           )}
+          <p className="absolute bottom-4 left-4 z-10 text-sm text-white">
+            Uploaded by{" "}
+            <Link
+              href={BgImage?.authorLink || "/"}
+              className="underline text-blue-300"
+            >
+              {BgImage?.author}
+            </Link>
+          </p>
         </div>
       </div>
 
@@ -61,13 +87,17 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           <h1
             className={`text-4xl font-bold mt-8 mb-10 text-center ${outfit.className}`}
           >
-            {isLoading ? "Welcome Back" : "Join With Us"}
+            {isLoainPage && "Welcome Back"}
+            {isRegisterPage && "Join With Us"}
+            {isForgotPage && "Forgot Password"}
+            {isVerifyPage && "Input Verification Code"}
           </h1>
           {children}
-          {(isLoainpage || isRegisterPage) && (
+          {(isLoainPage || isRegisterPage) && (
             <>
               <span className="text-sm w-1/2 text-nowrap text-zinc-400 my-8 flex items-center justify-center gap-2">
-                <hr className="w-1/2 border-zinc-400" /> or login with
+                <hr className="w-1/2 border-zinc-400" /> or{" "}
+                {isLoainPage ? "login" : "register"} with
                 <hr className="w-1/2 border-zinc-400" />
               </span>
               <div className="flex items-center justify-between w-full">
@@ -86,7 +116,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
                   onClick={() => alert("Facebook")}
                 />
                 <ButtonIcon
-                  icon={"logos:twitter"}
+                  icon={"logos:x"}
                   width={28}
                   height={28}
                   content="Twitter"
@@ -103,17 +133,19 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             </>
           )}
 
-          <p className="text-sm text-zinc-400 my-8 self-start">
-            {isLoainpage
-              ? "Don't have an account?"
-              : "Already have an account?"}{" "}
-            <Link
-              href={isLoainpage ? "/register" : "/login"}
-              className="text-blue-400 underline"
-            >
-              {isLoainpage ? "Join now" : "Login"}
-            </Link>
-          </p>
+          {!isVerifyPage && (
+            <p className="text-sm text-zinc-400 my-8 self-start">
+              {isLoainPage
+                ? "Don't have an account?"
+                : "Already have an account?"}{" "}
+              <Link
+                href={isLoainPage ? "/register" : "/login"}
+                className="text-blue-400 underline"
+              >
+                {isLoainPage ? "Join now" : "Login"}
+              </Link>
+            </p>
+          )}
         </div>
       </div>
     </main>

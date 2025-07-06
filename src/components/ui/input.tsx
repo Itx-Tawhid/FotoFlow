@@ -16,7 +16,7 @@ export const Input: React.FC<InputProps> = ({
       type={type}
       placeholder={placeholder}
       name={placeholder}
-      className={` w-full px-4 py-3 text-lg focus:outline-none rounded-md bg-zinc-700 ${className}`}
+      className={` w-full px-4 placeholder:text-sm py-3 text-lg focus:outline-none rounded-md bg-zinc-700 ${className}`}
       required
     />
   );

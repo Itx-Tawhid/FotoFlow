@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
+import "animate.css";
 
 const comfortaa = Comfortaa({
   subsets: ["latin"],

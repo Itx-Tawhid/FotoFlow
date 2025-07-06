@@ -31,7 +31,7 @@ const Login = () => {
       <Link href="/forgot" className="text-sm self-end text-blue-400 underline">
         Forgot Password?
       </Link>
-      <button className="bg-blue-400 text-lg hover:bg-blue-600 ease-in transition-all text-white w-full py-2 px-4 rounded-md">
+      <button className="bg-blue-400 text-lg hover:bg-blue-500 ease-in transition-all text-white w-full py-2 px-4 rounded-md">
         Login
       </button>
     </form>
