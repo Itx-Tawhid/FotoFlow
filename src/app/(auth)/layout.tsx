@@ -37,7 +37,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   }, []);
   return (
     <main className="w-full h-screen block bg-zinc-800 text-white">
-      <div className="flex items-center h-full justify-between w-full max-w-[1600px] mx-auto">
+      <div className="flex items-center h-full justify-between w-full max-w-[1400px] mx-auto">
         {/* Left side image and logo */}
         <div className="w-1/2 h-full">
           <div className="w-[90%] h-full relative overflow-hidden">
