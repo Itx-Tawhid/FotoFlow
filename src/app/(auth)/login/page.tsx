@@ -34,9 +34,7 @@ const Login = () => {
       >
         Forgot Password?
       </Link>
-      <button className="bg-blue-400 lg:text-lg md:text-sm text-[0.88rem] hover:bg-blue-500 ease-in transition-all text-white w-full py-2 lg:px-4 px-2 rounded-md">
-        Login
-      </button>
+      <button className="btn-forms">Login</button>
     </form>
   );
 };

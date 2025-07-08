@@ -152,4 +152,7 @@
   .fx-col {
     @apply flex flex-col;
   }
+  .btn-forms {
+    @apply bg-blue-400 lg:text-lg md:text-sm text-[0.88rem] hover:bg-blue-500 ease-in transition-all text-white py-2 lg:px-4 px-2 rounded-md;
+  }
 }

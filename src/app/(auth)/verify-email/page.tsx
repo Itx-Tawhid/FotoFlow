@@ -6,10 +6,7 @@ const VarifyEmail = () => {
     <>
       <form action="">
         <Input type="text" placeholder="Enter OTP" />
-        <button
-          type="submit"
-          className="mt-4 bg-blue-500 text-white px-3 py-2 rounded"
-        >
+        <button type="submit" className="btn-forms w-1/2 mt-4">
           Verify Email
         </button>
       </form>

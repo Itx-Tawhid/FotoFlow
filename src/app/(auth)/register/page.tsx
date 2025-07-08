@@ -37,9 +37,7 @@ const Register = () => {
           onClick={handleToggle}
         />
       </div>
-      <button className="bg-blue-400 text-lg hover:bg-blue-500 ease-in transition-all text-white w-full py-2 px-4 rounded-md">
-        Register
-      </button>
+      <button className="btn-forms w-full">Register</button>
     </form>
   );
 };
