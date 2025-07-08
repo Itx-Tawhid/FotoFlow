@@ -14,7 +14,7 @@ const Login = () => {
   return (
     <form
       action=""
-      className="flex items-center justify-center flex-col gap-4 w-full"
+      className="flex items-center justify-center flex-col gap-4 min-w-full w-full"
     >
       <Input type="email" placeholder="Email" />
       <div className="w-full relative">
@@ -24,14 +24,17 @@ const Login = () => {
           width="24"
           height="24"
           color="#9f9da0"
-          className="absolute top-4 right-3 cursor-pointer"
+          className="absolute lg:top-4 top-3 right-3 cursor-pointer"
           onClick={handleToggle}
         />
       </div>
-      <Link href="/forgot" className="text-sm self-end text-blue-400 underline">
+      <Link
+        href="/forgot"
+        className="lg:text-sm text-[0.66rem] self-end text-blue-400 underline"
+      >
         Forgot Password?
       </Link>
-      <button className="bg-blue-400 text-lg hover:bg-blue-500 ease-in transition-all text-white w-full py-2 px-4 rounded-md">
+      <button className="bg-blue-400 lg:text-lg md:text-sm text-[0.88rem] hover:bg-blue-500 ease-in transition-all text-white w-full py-2 lg:px-4 px-2 rounded-md">
         Login
       </button>
     </form>

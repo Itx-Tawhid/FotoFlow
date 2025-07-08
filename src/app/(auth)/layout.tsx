@@ -36,14 +36,14 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
     setBgImage(getRandomeImage(ImageItem));
   }, []);
   return (
-    <main className="w-full h-screen block bg-zinc-800 text-white">
+    <main className="w-full min-h-screen fx-center block bg-zinc-800 text-white">
       <div className="flex items-center h-full justify-between w-full max-w-[1400px] mx-auto">
         {/* Left side image and logo */}
-        <div className="w-1/2 h-full">
-          <div className="w-[90%] h-full relative overflow-hidden">
+        <div className="lg:w-1/2 w-[40%] md:block hidden h-full">
+          <div className="w-[90%] min-h-screen relative overflow-hidden">
             {!isLoading && (
               <h1
-                className={`px-8 absolute z-10 text-4xl text-center text-wrap inset-0 flex items-center justify-center leading-normal tracking-wider text-white font-bold ${merienda.className} animate__animated animate__fadeInUp`}
+                className={`px-8 absolute z-10 lg:text-4xl text-2xl text-center text-wrap inset-0 flex items-center justify-center leading-normal tracking-wider text-white font-bold ${merienda.className} animate__animated animate__fadeInUp`}
               >
                 {BgImage?.tagline}
               </h1>
@@ -53,7 +53,9 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
               <Logo width={35} height={35} textSize="text-2xl" />
             </div>
 
-            {isLoading && <Skeleton className="w-full h-full rounded-none" />}
+            {isLoading && (
+              <Skeleton className="w-full min-h-screen rounded-none" />
+            )}
             {BgImage && BgImage.src ? (
               <Image
                 src={BgImage.src}
@@ -70,7 +72,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
             ) : (
               <Skeleton className="w-full h-full rounded-none" />
             )}
-            <p className="absolute bottom-4 left-4 z-10 text-sm text-white">
+            <p className="absolute bottom-4 left-4 z-10 lg:text-sm text-[0.66rem] text-white">
               Uploaded by{" "}
               <Link
                 href={BgImage?.authorLink || "/"}
@@ -83,16 +85,17 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
 
         {/* Right side form and links */}
-        <div className="w-1/2 h-full flex items-center justify-center">
-          <div className=" w-[70%] h-full flex items-center justify-center flex-col">
+        <div className="lg:w-1/2 md:w-[60%] w-full h-full flex items-center justify-center">
+          <div className="lg:w-[70%] w-full lg:px-0 md:px-12 sm:px-16 px-8 h-full flex items-center justify-center flex-col">
             <h1
-              className={`text-4xl font-bold mt-8 mb-10 text-center ${outfit.className}`}
+              className={`lg:text-4xl md:text-2xl text-3xl font-bold mt-8 mb-10 text-center ${outfit.className}`}
             >
               {isLoainPage && "Welcome Back"}
               {isRegisterPage && "Join With Us"}
               {isForgotPage && "Forgot Password"}
               {isVerifyPage && "Input Verification Code"}
             </h1>
+            {/* Login forms */}
             {children}
             {(isLoainPage || isRegisterPage) && (
               <>
@@ -101,33 +104,33 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
                   {isLoainPage ? "login" : "register"} with
                   <hr className="w-1/2 border-zinc-400" />
                 </span>
-                <div className="flex items-center justify-between w-full">
+                <div className="flex items-center justify-between gap-4 w-full">
                   <ButtonIcon
                     icon={"flat-color-icons:google"}
-                    width={28}
-                    height={28}
-                    content="Google"
+                    width={34}
+                    height={34}
+                    className="border border-zinc-700 w-13 flex items-center justify-center h-13 rounded-full"
                     onClick={() => alert("Google")}
                   />
                   <ButtonIcon
                     icon={"logos:facebook"}
-                    width={28}
-                    height={28}
-                    content="Facebook"
+                    width={34}
+                    height={34}
+                    className="border border-zinc-700 w-13 flex items-center justify-center h-13 rounded-full"
                     onClick={() => alert("Facebook")}
                   />
                   <ButtonIcon
                     icon={"logos:x"}
                     width={28}
                     height={28}
-                    content="Twitter"
+                    className="border border-zinc-700 w-12 flex items-center justify-center h-12 rounded-full"
                     onClick={() => alert("Twitter")}
                   />
                   <ButtonIcon
                     icon={"logos:apple"}
-                    width={28}
-                    height={28}
-                    content="Apple"
+                    width={34}
+                    height={34}
+                    className="border border-zinc-700 w-12 flex items-center justify-center h-12 rounded-full"
                     onClick={() => alert("Apple")}
                   />
                 </div>

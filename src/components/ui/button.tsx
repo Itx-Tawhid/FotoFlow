@@ -7,6 +7,7 @@ interface ButtonIconProps {
   icon: string;
   width: number;
   height: number;
+  color?: string;
   className?: string;
   onClick?: () => void;
 }
@@ -17,6 +18,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
   width = 24,
   height = 24,
   className,
+  color,
   onClick,
 }) => {
   return (
@@ -26,7 +28,7 @@ export const ButtonIcon: React.FC<ButtonIconProps> = ({
       }`}
       onClick={onClick}
     >
-      {icon && <Icon icon={icon} width={width} height={height} />}
+      {icon && <Icon icon={icon} width={width} color={color} height={height} />}
       {content && <span className="pt-1">{content}</span>}
     </button>
   );
