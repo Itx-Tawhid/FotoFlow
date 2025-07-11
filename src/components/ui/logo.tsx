@@ -13,13 +13,19 @@ interface LogoProps {
   width: number;
   height: number;
   textSize: string;
+  className?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({ width, height, textSize }) => {
+export const Logo: React.FC<LogoProps> = ({
+  width,
+  height,
+  textSize,
+  className,
+}) => {
   return (
     <Link
       href="/"
-      className={`${merienda.className} flex items-center justify-center gap-2 ${textSize} font-semibold`}
+      className={`${merienda.className} flex items-center justify-center gap-2 ${textSize} font-semibold ${className}`}
     >
       <Image src="/images/logo.svg" alt="Logo" width={width} height={height} />
       FotoFlow

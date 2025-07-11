@@ -1,5 +1,3 @@
-import VideoIcon from "@/icons/video.svg";
-
 export interface NavbarProps {
   title: string;
   link: string;
@@ -8,18 +6,18 @@ export interface NavbarProps {
 
 export const NavbarItem: NavbarProps[] = [
   {
-    title: "Home",
-    link: "/",
-    icon: "streamline-freehand:home-chimney-2",
-  },
-  {
     title: "Photos",
     link: "/photos",
-    icon: "streamline-freehand:crop-image",
+    icon: "line-md:image-filled",
   },
   {
-    title: "videos",
-    link: "/about",
-    icon: "streamline-freehand:video-edit-play",
+    title: "Videos",
+    link: "/videos",
+    icon: "line-md:play-filled",
+  },
+  {
+    title: "Explore",
+    link: "/explore",
+    icon: "line-md:compass-loop",
   },
 ];
